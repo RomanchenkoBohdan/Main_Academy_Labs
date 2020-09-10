@@ -36,6 +36,7 @@ namespace Home_Work
             int countNotebook = 0;
             int countAllPc = 0;
 
+            // Посчест количества компьютеров
             for (int i = 0; i < Arr.Length; i++)
             {
                 for (int j = 0; j < Arr[i].Length; j++)
