@@ -55,6 +55,7 @@ namespace Home_Work
             var maxHdd = 0;
             var positionHdd = "";
 
+            // Посчест максимальный объём HDD
             for (int i = 0; i < Arr.Length; i++)
             {
                 for (int j = 0; j < Arr[i].Length; j++)
@@ -89,7 +90,6 @@ namespace Home_Work
 
             Console.WriteLine(positionWeakComputer);
             Console.WriteLine($"В этом компьютере объём HDD = {minHdd}, а производительность ЦП = {lowestProductivityCpu}" + "\n");
-
 
             // Изменение HDD
             for (int i = 0; i < Arr.Length; i++)
