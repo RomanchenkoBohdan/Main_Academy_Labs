@@ -10,33 +10,35 @@ namespace Home_Work
     {
         static void Main(string[] args)
         {
-            #region инициализация зубчатого массива
+            #region initialize array
             var Arr = new Computer[4][];
             Arr[0] = new Computer[4];
             Arr[1] = new Computer[2];
             Arr[2] = new Computer[1];
             Arr[3] = new Computer[3];
 
-            Arr[0][0] = new Computer(PcType.desktopComputer, 256, 2.2);
-            Arr[0][1] = new Computer(PcType.notebook, 128, 3.2);
-            Arr[0][2] = new Computer(PcType.desktopComputer, 1024, 5.1);
-            Arr[0][3] = new Computer(PcType.desktopComputer, 512, 4.6);
+            Arr[0][0] = new Computer(PcType.desktopComputer, 256, 2.2, 16);
+            Arr[0][1] = new Computer(PcType.notebook, 128, 3.2, 12);
+            Arr[0][2] = new Computer(PcType.server, 1024, 5.1, 32);
+            Arr[0][3] = new Computer(PcType.desktopComputer, 512, 4.6, 64);
 
-            Arr[1][0] = new Computer(PcType.desktopComputer, 128, 2.2);
-            Arr[1][1] = new Computer(PcType.notebook, 1024, 3.2);
+            Arr[1][0] = new Computer(PcType.desktopComputer, 128, 2.2, 8);
+            Arr[1][1] = new Computer(PcType.notebook, 1024, 3.2, 32);
 
-            Arr[2][0] = new Computer(PcType.notebook, 512, 2.2);
+            Arr[2][0] = new Computer(PcType.notebook, 512, 2.2, 12);
 
-            Arr[3][0] = new Computer(PcType.notebook, 512, 2.2);
-            Arr[3][1] = new Computer(PcType.notebook, 2048, 5.1);
-            Arr[3][2] = new Computer(PcType.notebook, 1024, 5.1);
+            Arr[3][0] = new Computer(PcType.server, 512, 2.2, 16);
+            Arr[3][1] = new Computer(PcType.notebook, 2048, 5.1, 64);
+            Arr[3][2] = new Computer(PcType.notebook, 1024, 5.1, 16);
             #endregion
 
             int countDesktop = 0;
             int countNotebook = 0;
+            int countServer = 0;
             int countAllPc = 0;
 
-            // Посчест количества компьютеров
+            // count total number of every type of computers
+            // count total number of all computers
             for (int i = 0; i < Arr.Length; i++)
             {
                 for (int j = 0; j < Arr[i].Length; j++)
@@ -44,19 +46,22 @@ namespace Home_Work
                     countAllPc++;
                     if (Arr[i][j].pcType == PcType.desktopComputer)
                         countDesktop++;
-                    else
+                    else if (Arr[i][j].pcType == PcType.notebook)
                         countNotebook++;
+                    else
+                        countServer++;
                 }
             }
 
             Console.WriteLine("Количество Desktop компьютеров = " + countDesktop);
             Console.WriteLine("Количество Notebook компьютеров = " + countNotebook);
+            Console.WriteLine("Количество Server компьютеров = " + countServer);
             Console.WriteLine("Общее количество компьютеров = " + countAllPc + "\n");
 
             var maxHdd = 0;
             var positionHdd = "";
 
-            // Посчест максимальный объём HDD
+            // Find computer with the largest storage (HDD)
             for (int i = 0; i < Arr.Length; i++)
             {
                 for (int j = 0; j < Arr[i].Length; j++)
@@ -92,21 +97,23 @@ namespace Home_Work
             Console.WriteLine(positionWeakComputer);
             Console.WriteLine($"В этом компьютере объём HDD = {minHdd}, а производительность ЦП = {lowestProductivityCpu}" + "\n");
 
-            // Изменение HDD
+            // Desktop upgrade: change CPU up to 8
             for (int i = 0; i < Arr.Length; i++)
             {
                 for (int j = 0; j < Arr[i].Length; j++)
                 {
                     if (Arr[i][j].pcType == PcType.desktopComputer)
                     {
-                        Arr[i][j].memoryCapasity += 8;
+                        Arr[i][j].CPU += 8;
                     }
-                    else
-                    {
-                        Arr[i][j].memoryCapasity = 8;
-                    }
+                    //else
+                    //{
+                    //    Arr[i][j].CPU = 8;
+                    //}
                 }
             }
+
+            Console.WriteLine("DesktopComputer после увелечение CPU на 8: \n");
 
             for (int i = 0; i < Arr.Length; i++)
             {
@@ -114,12 +121,12 @@ namespace Home_Work
                 {
                     if (Arr[i][j].pcType == PcType.desktopComputer)
                     {
-                        Console.WriteLine($"desktopComputer под номером {i} {j} = {Arr[i][j].memoryCapasity}");
+                        Console.WriteLine($"DesktopComputer под номером {i} {j} = {Arr[i][j].CPU}");
                     }
-                    else
-                    {
-                        Console.WriteLine($"notebook под номером {i} {j} = {Arr[i][j].memoryCapasity}");
-                    }
+                    //else
+                    //{
+                    //    Console.WriteLine($"notebook под номером {i} {j} = {Arr[i][j].CPU}");
+                    //}
                 }
                 Console.WriteLine();
             }
