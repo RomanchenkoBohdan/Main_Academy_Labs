@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Laba_2
-{    class Program
+{
+    class Program
     {
         static void Main(string[] args)
         {
@@ -79,7 +81,7 @@ namespace Laba_2
 
             List<int> tempList = new List<int>();
 
-            while(num != 0)
+            while (num != 0)
             {
                 temp = num % 2;
                 num = num / 2;
@@ -99,20 +101,8 @@ namespace Laba_2
         #region ToFromUnary
         static void My_strings()
         {
-            //Declare int and string variables for decimal and binary presentations
-
-            //Implement two positive integer variables input
-
-            //To present each of them in the form of unary string use for loop
-
-            //Use concatenation of these two strings 
-            //Note it is necessary to use some symbol ( for example “#”) to separate
-
-            //Check the numbers on the equality 0
-            //Realize the  algorithm for replacing '1#1' to '#' by using the for loop 
-            //Delete the '#' from algorithm result
-
-            //Output the result 
+            int Bin = 0;
+            string dec = "";
         }
         #endregion
 
@@ -178,19 +168,42 @@ namespace Laba_2
         #region Morse
         static void Morse_code()
         {
-            //Create string variable for 'sos'      
+            Console.WriteLine();
+            string sos = "sos";
 
-            //Use string array for Morse code
             string[,] Dictionary_arr = new string[,] { { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" },
             { ".-   ", "-... ", "-.-. ", "-..  ", ".    ", "..-. ", "--.  ", ".... ", "..   ", ".--- ", "-.-  ", ".-.. ", "--   ", "-.   ", "---  ", ".--. ", "--.- ", ".-.  ", "...  ", "-    ", "..-  ", "...- ", ".--  ", "-..- ", "-.-- ", "--.. ", "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----." }};
-            //Use ToCharArray() method for string to copy charecters to Unicode character array
-            //Use foreach loop for character array in which
 
-            //Implement Console.Beep(1000, 250) for '.'
-            // and Console.Beep(1000, 750) for '-'
+            char[] Arr = sos.ToCharArray();
+            string[] ArrStr = (from c in Arr select c.ToString()).ToArray();
+            int s = 0;
+            int o = 0;
 
-            //Use Thread.Sleep(50) to separate sounds
-            //                  
+            for (int i = 0; i < ArrStr.Length; i++)
+            {
+                for (int j = 0; j < Dictionary_arr.Length/2; j++)
+                {
+                    if (Dictionary_arr[0, j] == ArrStr[0] || Dictionary_arr[0, j] == ArrStr[2])
+                    {
+                        Console.Beep(1000, 250);
+                        Thread.Sleep(50);
+                        Console.WriteLine(Dictionary_arr[0, j]); // У меня ноут не воспроизводит эти звуки. Что бы убедится в корректности, я вывожу символы на экран
+                        s++;
+                        if (s == 2)
+                        {
+                            break;
+                        }
+                    }
+                    else if (Dictionary_arr[0, j] == ArrStr[1] && s != 0 && o == 0)
+                    {
+                        Console.Beep(1000, 750);
+                        Thread.Sleep(50);
+                        Console.WriteLine(Dictionary_arr[0, j]); // У меня ноут не воспроизводит эти звуки. Что бы убедится в корректности, я вывожу символы на экран
+                        o++;
+                        break;
+                    }
+                }
+            }
         }
 
         #endregion
