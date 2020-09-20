@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laba_2", "Laba_2\Laba_2.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello_Operators_advstud", "Hello_Operators_advstud\Hello_Operators_advstud.csproj", "{6E896D50-D56A-4F2D-A5A2-66577F53F390}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello_Operatorss_stud", "Hello_Operatorss_stud\Hello_Operatorss_stud.csproj", "{CC08CE71-BC51-4B03-ACDF-8D0D86E3FA5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6E896D50-D56A-4F2D-A5A2-66577F53F390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E896D50-D56A-4F2D-A5A2-66577F53F390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E896D50-D56A-4F2D-A5A2-66577F53F390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC08CE71-BC51-4B03-ACDF-8D0D86E3FA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC08CE71-BC51-4B03-ACDF-8D0D86E3FA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC08CE71-BC51-4B03-ACDF-8D0D86E3FA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC08CE71-BC51-4B03-ACDF-8D0D86E3FA5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
