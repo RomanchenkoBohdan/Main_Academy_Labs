@@ -101,8 +101,63 @@ namespace Laba_2
         #region ToFromUnary
         static void My_strings()
         {
-            int Bin = 0;
-            string dec = "";
+            int a, b;
+            string a_str, b_str, ab_str, res_str;
+            int a_length, b_length, min_length;
+
+
+            Console.WriteLine("Type first positive integer");
+            a = (int)uint.Parse(Console.ReadLine());
+            Console.WriteLine("Type second positive integer");
+            b = (int)uint.Parse(Console.ReadLine());
+
+            {
+                a_str = "";
+                for (int ii = 0; ii < a; ii++)
+                {
+                    a_str += "1";
+                }
+                Console.WriteLine(a_str);
+
+                b_str = "";
+                for (int ii = 0; ii < b; ii++)
+                {
+                    b_str += "1";
+                }
+                Console.WriteLine(b_str);
+
+                ab_str = a_str + "#" + b_str;
+                a_length = a_str.Length;
+                b_length = b_str.Length;
+                if (a_length == 0)
+                    res_str = b_str;
+                else if (b_length == 0)
+                    res_str = a_str;
+                else
+                {
+                    if (a_length < b_length)
+                        min_length = a_length;
+                    else
+                        min_length = b_length;
+
+                    res_str = ab_str;
+                    for (int i = 1; i <= min_length; i++)
+                    {
+                        res_str = res_str.Replace("1#1", "#");
+                    }
+                    res_str = res_str.Trim(new Char[] { '#' });
+                }
+                Console.WriteLine(" Unary |a-b|= " + res_str);
+                int IntResult = 0;
+                for (int iii = 1; iii <= res_str.Length; iii++)
+                {
+                    IntResult += 1;
+                }
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine(" Decimal |a-b|= " + IntResult);
+            }
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
         #endregion
 
